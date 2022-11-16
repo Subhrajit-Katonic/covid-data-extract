@@ -13,6 +13,7 @@ import datetime
 import os
 import smtplib
 from email.message import EmailMessage
+import random
 
 # %% target website
 url = "https://sisanjuan.gob.ar/modulo-coronavirus"
@@ -40,10 +41,10 @@ date = [str(datetime.date.today() - datetime.timedelta(days = 1))] * 6
 # if len(categories) != date:
 #     categories.extend([0] * (len(date) - len(categories)))
 
-categories = ["mumbai", "pune", "bangalore", "bhubaneswar", "hyderabad"]
+categories_list = ["mumbai", "pune", "bangalore", "bhubaneswar", "hyderabad"]
  
 if len(cases) != date:
-    cases.extend([0] * (len(date) - len(cases)))
+    cases.extend([random.choice(categories_list)] * (len(date) - len(cases)))
 
 # %% create daily dataframe
 # long format
