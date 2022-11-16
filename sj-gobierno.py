@@ -36,6 +36,13 @@ cases = [int(i) for i in cases]
 date = [str(datetime.date.today() - datetime.timedelta(days = 1))] * 6
 # date = [str(datetime.date.today())] * 6
 
+## Remove error for empty record
+if len(categories) != date:
+    categories.extend([0] * (len(date) - len(categories)))
+ 
+if len(cases) != date:
+    cases.extend([0] * (len(date) - len(cases)))
+
 # %% create daily dataframe
 # long format
 df_long = pd.DataFrame({'date': date, 'cases': cases, 'categories': categories})
