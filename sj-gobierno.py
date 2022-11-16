@@ -37,8 +37,10 @@ date = [str(datetime.date.today() - datetime.timedelta(days = 1))] * 6
 # date = [str(datetime.date.today())] * 6
 
 ## Remove error for empty record
-if len(categories) != date:
-    categories.extend([0] * (len(date) - len(categories)))
+# if len(categories) != date:
+#     categories.extend([0] * (len(date) - len(categories)))
+
+categories = ["mumbai", "pune", "bangalore", "bhubaneswar", "hyderabad"]
  
 if len(cases) != date:
     cases.extend([0] * (len(date) - len(cases)))
